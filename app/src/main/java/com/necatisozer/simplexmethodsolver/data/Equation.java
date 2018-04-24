@@ -61,9 +61,8 @@ public class Equation implements Cloneable {
   }
 
   public void addMultipliedEquation(double multiplyValue, Equation equation) {
-    Equation mEquation = equation.clone();
-    mEquation.multiply(multiplyValue);
-    add(mEquation);
+    equation.multiply(multiplyValue);
+    add(equation);
   }
 
   public Equation clone() {
@@ -71,7 +70,6 @@ public class Equation implements Cloneable {
     for (double constant : this.constants) {
       constants.add(constant);
     }
-    double result = this.result;
-    return new Equation(constants, result);
+    return new Equation(constants, this.result);
   }
 }

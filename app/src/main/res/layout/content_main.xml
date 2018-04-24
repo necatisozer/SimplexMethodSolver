@@ -1,44 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:fillViewport="true">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+  <android.support.v7.widget.LinearLayoutCompat
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
 
-        <GridView
-            android:id="@+id/grid_view_objective"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnWidth="90dp"
-            android:gravity="center"
-            android:horizontalSpacing="10dp"
-            android:numColumns="auto_fit"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <android.support.v7.widget.LinearLayoutCompat
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearlayout_main_focus"/>
 
-        <GridView
-            android:id="@+id/grid_view_contraints"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnWidth="90dp"
-            android:gravity="center"
-            android:horizontalSpacing="10dp"
-            android:numColumns="auto_fit"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/grid_view_objective" />
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
-    </android.support.constraint.ConstraintLayout>
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e1x1_plus"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="2"
+          android:id="@+id/edittext_main_e1x1"
+          android:gravity="center"
+          style="@android:style/Widget.Material.EditText"/>
+
+      <TextView
+          android:text="x1"
+          android:gravity="center"
+          android:ems="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textview_main_e1x1"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e1x2_plus"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="2"
+          android:gravity="center"
+          android:id="@+id/edittext_main_e1x2"
+          style="@android:style/Widget.Material.EditText"/>
+
+      <TextView
+          android:text="x2"
+          android:gravity="center"
+          android:ems="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textview_main_e1x2"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e1x3_plus"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="2"
+          android:gravity="center"
+          android:id="@+id/edittext_main_e1x3"
+          style="@android:style/Widget.Material.EditText"/>
+
+      <TextView
+          android:text="x3"
+          android:gravity="center"
+          android:ems="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textview_main_e1x3"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e1x4_plus"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="2"
+          android:gravity="center"
+          android:id="@+id/edittext_main_e1x4"
+          style="@android:style/Widget.Material.EditText"/>
+
+      <TextView
+          android:text="x4"
+          android:gravity="center"
+          android:ems="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textview_main_e1x4"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e1x5_plus"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="2"
+          android:gravity="center"
+          android:id="@+id/edittext_main_e1x5"
+          style="@android:style/Widget.Material.EditText"/>
+
+      <TextView
+          android:text="x5"
+          android:gravity="center"
+          android:ems="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textview_main_e1x5"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e1_greater"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="3"
+          android:gravity="center"
+          android:id="@+id/edittext_main_e1_result"
+          style="@android:style/Widget.Material.EditText"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e2x1_plus"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="2"
+          android:id="@+id/edittext_main_e2x1"
+          android:gravity="center"
+          style="@android:style/Widget.Material.EditText"/>
+
+      <TextView
+          android:text="x1"
+          android:gravity="center"
+          android:ems="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textview_main_e2x1"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e2x2_plus"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="2"
+          android:gravity="center"
+          android:id="@+id/edittext_main_e2x2"
+          style="@android:style/Widget.Material.EditText"/>
+
+      <TextView
+          android:text="x2"
+          android:gravity="center"
+          android:ems="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textview_main_e2x2"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e2x3_plus"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="2"
+          android:gravity="center"
+          android:id="@+id/edittext_main_e2x3"
+          style="@android:style/Widget.Material.EditText"/>
+
+      <TextView
+          android:text="x3"
+          android:gravity="center"
+          android:ems="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textview_main_e2x3"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e2x4_plus"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="2"
+          android:gravity="center"
+          android:id="@+id/edittext_main_e2x4"
+          style="@android:style/Widget.Material.EditText"/>
+
+      <TextView
+          android:text="x4"
+          android:gravity="center"
+          android:ems="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textview_main_e2x4"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e2x5_plus"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="2"
+          android:gravity="center"
+          android:id="@+id/edittext_main_e2x5"
+          style="@android:style/Widget.Material.EditText"/>
+
+      <TextView
+          android:text="x5"
+          android:gravity="center"
+          android:ems="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textview_main_e2x5"/>
+
+      <Spinner
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/spinner_main_e2_greater"
+          android:background="@null"/>
+
+      <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:background="@null"
+          tools:text="99.99"
+          android:ems="3"
+          android:gravity="center"
+          android:id="@+id/edittext_main_e2_result"
+          style="@android:style/Widget.Material.EditText"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+  </android.support.v7.widget.LinearLayoutCompat>
+
 </android.support.v4.widget.NestedScrollView>
