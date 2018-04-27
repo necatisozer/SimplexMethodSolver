@@ -3,19 +3,19 @@ package com.necatisozer.simplexmethodsolver;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import android.view.WindowManager;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
@@ -23,14 +23,23 @@ import butterknife.OnClick;
 import com.necatisozer.simplexmethodsolver.data.Equation;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+  @BindView(R.id.nested_scroll_view_main) NestedScrollView nestedScrollView;
   @BindView(R.id.fab) FloatingActionButton fab;
   @BindView(R.id.linearlayout_main_focus) LinearLayoutCompat linearLayoutCompatFocus;
+
+  @BindView(R.id.spinner_main_goal_maximize) Spinner spinnerGoalMaximize;
+
+  @BindViews({R.id.edittext_main_goal_x1, R.id.edittext_main_goal_x2, R.id.edittext_main_goal_x3,
+      R.id.edittext_main_goal_x4, R.id.edittext_main_goal_x5}) List<EditText> editTextsConstantGoal;
+
+  @BindViews({R.id.spinner_main_goal_x1_plus, R.id.spinner_main_goal_x2_plus,
+      R.id.spinner_main_goal_x3_plus, R.id.spinner_main_goal_x4_plus,
+      R.id.spinner_main_goal_x5_plus}) List<Spinner> spinnersPlusGoal;
 
   @BindViews({R.id.edittext_main_e1x1, R.id.edittext_main_e1x2, R.id.edittext_main_e1x3,
       R.id.edittext_main_e1x4, R.id.edittext_main_e1x5})
@@ -40,25 +49,55 @@ public class MainActivity extends AppCompatActivity {
       R.id.spinner_main_e1x4_plus, R.id.spinner_main_e1x5_plus})
   List<Spinner> spinnersPlusE1;
 
-  @BindViews({R.id.spinner_main_e2x1_plus, R.id.spinner_main_e2x2_plus, R.id.spinner_main_e2x3_plus,
-      R.id.spinner_main_e2x4_plus, R.id.spinner_main_e2x5_plus})
-  List<Spinner> spinnersPlusE2;
-
   @BindViews({R.id.edittext_main_e2x1, R.id.edittext_main_e2x2, R.id.edittext_main_e2x3,
       R.id.edittext_main_e2x4, R.id.edittext_main_e2x5})
   List<EditText> editTextsConstantE2;
 
-  @BindViews({R.id.spinner_main_e1_greater, R.id.spinner_main_e2_greater}) List<Spinner>
+  @BindViews({R.id.spinner_main_e2x1_plus, R.id.spinner_main_e2x2_plus, R.id.spinner_main_e2x3_plus,
+      R.id.spinner_main_e2x4_plus, R.id.spinner_main_e2x5_plus})
+  List<Spinner> spinnersPlusE2;
+
+  @BindViews({R.id.edittext_main_e3x1, R.id.edittext_main_e3x2, R.id.edittext_main_e3x3,
+      R.id.edittext_main_e3x4, R.id.edittext_main_e3x5})
+  List<EditText> editTextsConstantE3;
+
+  @BindViews({R.id.spinner_main_e3x1_plus, R.id.spinner_main_e3x2_plus, R.id.spinner_main_e3x3_plus,
+      R.id.spinner_main_e3x4_plus, R.id.spinner_main_e3x5_plus})
+  List<Spinner> spinnersPlusE3;
+
+  @BindViews({R.id.edittext_main_e4x1, R.id.edittext_main_e4x2, R.id.edittext_main_e4x3,
+      R.id.edittext_main_e4x4, R.id.edittext_main_e4x5})
+  List<EditText> editTextsConstantE4;
+
+  @BindViews({R.id.spinner_main_e4x1_plus, R.id.spinner_main_e4x2_plus, R.id.spinner_main_e4x3_plus,
+      R.id.spinner_main_e4x4_plus, R.id.spinner_main_e4x5_plus})
+  List<Spinner> spinnersPlusE4;
+
+  @BindViews({R.id.edittext_main_e5x1, R.id.edittext_main_e5x2, R.id.edittext_main_e5x3,
+      R.id.edittext_main_e5x4, R.id.edittext_main_e5x5})
+  List<EditText> editTextsConstantE5;
+
+  @BindViews({R.id.spinner_main_e5x1_plus, R.id.spinner_main_e5x2_plus, R.id.spinner_main_e5x3_plus,
+      R.id.spinner_main_e5x4_plus, R.id.spinner_main_e5x5_plus})
+  List<Spinner> spinnersPlusE5;
+
+  @BindViews({R.id.spinner_main_e1_greater, R.id.spinner_main_e2_greater,
+      R.id.spinner_main_e3_greater, R.id.spinner_main_e4_greater, R.id.spinner_main_e5_greater})
+  List<Spinner>
       spinnersGreater;
 
-  @BindViews({R.id.edittext_main_e1_result, R.id.edittext_main_e2_result}) List<EditText>
+  @BindViews({R.id.edittext_main_e1_result, R.id.edittext_main_e2_result,
+      R.id.edittext_main_e3_result, R.id.edittext_main_e4_result, R.id.edittext_main_e5_result})
+  List<EditText>
       editTextsResult;
+
+  @BindView(R.id.textview_main_solution) TextView textViewsolution;
 
   List<List<Spinner>> spinnersPlus;
   List<List<EditText>> editTextsConstant;
 
   private List<Equation> equations;
-  private List<Integer> pivotConstants;
+  private List<Integer> pivotConstantIndexList;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +115,16 @@ public class MainActivity extends AppCompatActivity {
     spinnersPlus = new ArrayList<>();
     spinnersPlus.add(spinnersPlusE1);
     spinnersPlus.add(spinnersPlusE2);
+    spinnersPlus.add(spinnersPlusE3);
+    spinnersPlus.add(spinnersPlusE4);
+    spinnersPlus.add(spinnersPlusE5);
 
     editTextsConstant = new ArrayList<>();
     editTextsConstant.add(editTextsConstantE1);
     editTextsConstant.add(editTextsConstantE2);
+    editTextsConstant.add(editTextsConstantE3);
+    editTextsConstant.add(editTextsConstantE4);
+    editTextsConstant.add(editTextsConstantE5);
 
     ArrayAdapter<CharSequence> spinnerAdapterPlus = ArrayAdapter.createFromResource(this,
         R.array.main_spinner_items_plus, android.R.layout.simple_spinner_item);
@@ -98,11 +143,20 @@ public class MainActivity extends AppCompatActivity {
     for (Spinner spinner : spinnersGreater) {
       spinner.setAdapter(spinnerAdapterGreater);
     }
+
+    ArrayAdapter<CharSequence> spinnerAdapterMaximize = ArrayAdapter.createFromResource(this,
+        R.array.main_spinner_items_maximize, android.R.layout.simple_spinner_item);
+    spinnerAdapterMaximize.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    spinnerGoalMaximize.setAdapter(spinnerAdapterMaximize);
+
+    for (Spinner spinner : spinnersPlusGoal) {
+      spinner.setAdapter(spinnerAdapterPlus);
+    }
   }
 
   private void getInputs() {
     equations = new ArrayList<>();
-    pivotConstants = new ArrayList<>();
+    pivotConstantIndexList = new ArrayList<>();
 
     for (int i = 0; i < editTextsConstant.size(); i++) {
       List<Double> constants = new ArrayList<>();
@@ -110,11 +164,22 @@ public class MainActivity extends AppCompatActivity {
         String sConstant = editTextsConstant.get(i).get(j).getText().toString();
         Double constant = sConstant.isEmpty() ? 0.0 : Double.parseDouble(sConstant);
         Double multiply = spinnersPlus.get(i).get(j).getSelectedItemPosition() == 0 ? 1.0 : -1.0;
-        constants.add(constant * multiply);
+        constants.add(constant == 0 ? 0.0 : constant * multiply);
       }
 
-      for (int k = 0; k < editTextsConstant.size(); k++) {
-        constants.add(k == i ? 1.0 : 0.0);
+      for (int k = 0; k < editTextsConstant.size() + 1; k++) {
+        if (k == i) {
+          switch (spinnersGreater.get(i).getSelectedItemPosition()) {
+            case 0:
+              constants.add(1.0);
+              break;
+            case 1:
+              constants.add(-1.0);
+              break;
+          }
+        } else {
+          constants.add(0.0);
+        }
       }
 
       String sResult = editTextsResult.get(i).getText().toString();
@@ -122,19 +187,22 @@ public class MainActivity extends AppCompatActivity {
 
       equations.add(new Equation(constants, result));
     }
-  }
 
-  private void printEquations() {
-    String sEquation = " \n";
-
-    for (Equation equation : equations) {
-      sEquation += "\n";
-      sEquation +=
-          "Equation " + equations.indexOf(equation) + " = " + equation.getConstants().toString();
-      sEquation += " Result = " + equation.getResult();
+    for (int i = 0; i < editTextsConstant.size(); i++) {
+      pivotConstantIndexList.add(5 + i);
     }
 
-    Log.d(getClass().getSimpleName(), sEquation);
+    List<Double> constantsResult = new ArrayList<>();
+    for (EditText editTextConstant : editTextsConstantGoal) {
+      String sConstant = editTextConstant.getText().toString();
+      Double constant = sConstant.isEmpty() ? 0.0 : Double.parseDouble(sConstant);
+      constantsResult.add(constant == 0 ? 0.0 : constant * (-1));
+    }
+    for (int i = 0; i < editTextsConstant.size(); i++) {
+      constantsResult.add(0.0);
+    }
+    constantsResult.add(1.0);
+    equations.add(new Equation(constantsResult, 0.0));
   }
 
   private void calculate() {
@@ -168,9 +236,24 @@ public class MainActivity extends AppCompatActivity {
         equations.get(i)
             .addMultipliedEquation(pivotColumnElement * (-1), equations.get(pivotRowIndex).clone());
       }
-      pivotConstants.set(pivotRowIndex, pivotColumnIndex);
-      printEquations();
+      pivotConstantIndexList.set(pivotRowIndex, pivotColumnIndex);
     }
+
+    String solution = "";
+    for (int i = 0; i < 5; i++) {
+      solution += "x" + (i + 1) + " = ";
+      int index = pivotConstantIndexList.indexOf(i);
+      if (index > -1) {
+        solution += equations.get(index).getResult();
+      } else {
+        solution += 0;
+      }
+      solution += ", ";
+    }
+
+    solution += "Solution: " + equations.get(equations.size() - 1).getResult();
+    textViewsolution.setText(solution);
+    nestedScrollView.fullScroll(View.FOCUS_DOWN);
   }
 
   private boolean ifContinueOrNot() {

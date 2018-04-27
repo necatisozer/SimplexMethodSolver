@@ -95,7 +95,11 @@
     <item>−</item>
   </string-array>
   <string-array name="main_spinner_items_greater">
-    <item>≥</item>
     <item>≤</item>
+    <item>≥</item>
+  </string-array>
+  <string-array name="main_spinner_items_maximize">
+    <item>Maximize</item>
+    <item>Minimize</item>
   </string-array>
 </resources>
