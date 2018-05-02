@@ -946,7 +946,7 @@ android:id="@+id/nested_scroll_view_main">
     </android.support.v7.widget.LinearLayoutCompat>
 
     <TextView
-        android:text="Solution"
+        android:text="Optimal Solution"
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -955,14 +955,13 @@ android:id="@+id/nested_scroll_view_main">
         android:paddingEnd="16dp" android:textStyle="bold" android:textSize="20sp"/>
 
     <TextView
-        tools:text=""
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textview_main_solution"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"/>
+            tools:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_main_solution"
+            android:paddingTop="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" android:gravity="center_vertical|start"/>
 
     <TextView
         android:text=""
