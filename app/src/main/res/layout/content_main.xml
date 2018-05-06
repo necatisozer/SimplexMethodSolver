@@ -1,978 +1,978 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main"
-    android:fillViewport="true"
-android:id="@+id/nested_scroll_view_main">
-
-  <android.support.v7.widget.LinearLayoutCompat
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity"
+        tools:showIn="@layout/activity_main"
+        android:fillViewport="true"
+        android:id="@+id/nested_scroll_view_main">
 
     <android.support.v7.widget.LinearLayoutCompat
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearlayout_main_focus"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:text="Goal"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp" android:textStyle="bold" android:textSize="20sp"/>
+        <android.support.v7.widget.LinearLayoutCompat
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearlayout_main_focus"/>
 
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-    tools:visibility="gone">
+        <TextView
+                android:text="Goal"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" android:textStyle="bold" android:textSize="20sp"/>
 
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_goal_maximize"
-          android:background="@null"/>
+        <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                tools:visibility="gone">
 
-      <TextView
-          android:text="z = "
-          android:gravity="center"
-          android:ems="2"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_goal_equals"/>
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_goal_maximize"
+                    android:background="@null"/>
 
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_goal_x1_plus"
-          android:background="@null"/>
+            <TextView
+                    android:text="z = "
+                    android:gravity="center"
+                    android:ems="2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_goal_equals"/>
 
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:id="@+id/edittext_main_goal_x1"
-          android:gravity="center"
-          style="@android:style/Widget.Material.EditText"/>
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_goal_x1_plus"
+                    android:background="@null"/>
 
-      <TextView
-          android:text="x1"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_goal_x1"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:id="@+id/edittext_main_goal_x1"
+                    android:gravity="center"
+                    style="@android:style/Widget.Material.EditText"/>
 
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_goal_x2_plus"
-          android:background="@null"/>
+            <TextView
+                    android:text="x1"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_goal_x1"/>
 
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_goal_x2"
-          style="@android:style/Widget.Material.EditText"/>
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_goal_x2_plus"
+                    android:background="@null"/>
 
-      <TextView
-          android:text="x2"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_goal_x2"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_goal_x2"
+                    style="@android:style/Widget.Material.EditText"/>
 
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_goal_x3_plus"
-          android:background="@null"/>
+            <TextView
+                    android:text="x2"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_goal_x2"/>
 
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_goal_x3"
-          style="@android:style/Widget.Material.EditText"/>
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_goal_x3_plus"
+                    android:background="@null"/>
 
-      <TextView
-          android:text="x3"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_goal_x3"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_goal_x3"
+                    style="@android:style/Widget.Material.EditText"/>
 
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_goal_x4_plus"
-          android:background="@null"/>
+            <TextView
+                    android:text="x3"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_goal_x3"/>
 
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_goal_x4"
-          style="@android:style/Widget.Material.EditText"/>
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_goal_x4_plus"
+                    android:background="@null"/>
 
-      <TextView
-          android:text="x4"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_goal_x4"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_goal_x4"
+                    style="@android:style/Widget.Material.EditText"/>
 
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_goal_x5_plus"
-          android:background="@null"/>
+            <TextView
+                    android:text="x4"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_goal_x4"/>
 
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_goal_x5"
-          style="@android:style/Widget.Material.EditText"/>
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_goal_x5_plus"
+                    android:background="@null"/>
 
-      <TextView
-          android:text="x5"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_goal_x5"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_goal_x5"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x5"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_goal_x5"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <TextView
+                android:text="Constraints"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" android:textStyle="bold" android:textSize="20sp"/>
+
+        <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e1x1_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:id="@+id/edittext_main_e1x1"
+                    android:gravity="center"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x1"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e1x1"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e1x2_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e1x2"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x2"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e1x2"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e1x3_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e1x3"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x3"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e1x3"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e1x4_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e1x4"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x4"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e1x4"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e1x5_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e1x5"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x5"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e1x5"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e1_greater"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e1_result"
+                    style="@android:style/Widget.Material.EditText"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e2x1_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:id="@+id/edittext_main_e2x1"
+                    android:gravity="center"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x1"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e2x1"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e2x2_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e2x2"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x2"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e2x2"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e2x3_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e2x3"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x3"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e2x3"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e2x4_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e2x4"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x4"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e2x4"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e2x5_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e2x5"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x5"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e2x5"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e2_greater"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e2_result"
+                    style="@android:style/Widget.Material.EditText"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e3x1_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:id="@+id/edittext_main_e3x1"
+                    android:gravity="center"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x1"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e3x1"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e3x2_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e3x2"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x2"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e3x2"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e3x3_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e3x3"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x3"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e3x3"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e3x4_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e3x4"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x4"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e3x4"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e3x5_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e3x5"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x5"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e3x5"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e3_greater"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e3_result"
+                    style="@android:style/Widget.Material.EditText"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e4x1_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:id="@+id/edittext_main_e4x1"
+                    android:gravity="center"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x1"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e4x1"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e4x2_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e4x2"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x2"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e4x2"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e4x3_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e4x3"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x3"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e4x3"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e4x4_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e4x4"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x4"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e4x4"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e4x5_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e4x5"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x5"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e4x5"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e4_greater"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e4_result"
+                    style="@android:style/Widget.Material.EditText"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e5x1_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:id="@+id/edittext_main_e5x1"
+                    android:gravity="center"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x1"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e5x1"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e5x2_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e5x2"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x2"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e5x2"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e5x3_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e5x3"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x3"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e5x3"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e5x4_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e5x4"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x4"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e5x4"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e5x5_plus"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e5x5"
+                    style="@android:style/Widget.Material.EditText"/>
+
+            <TextView
+                    android:text="x5"
+                    android:gravity="center"
+                    android:ems="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview_main_e5x5"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_main_e5_greater"
+                    android:background="@null"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    tools:text="99.99"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:id="@+id/edittext_main_e5_result"
+                    style="@android:style/Widget.Material.EditText"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <TextView
+                android:text="Solution"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" android:textStyle="bold" android:textSize="20sp"/>
+
+        <TextView
+                tools:text=""
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview_main_solution"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
+
+        <TextView
+                android:text=""
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" android:textStyle="bold" android:textSize="20sp"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
-
-    <TextView
-        android:text="Constraints"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp" android:textStyle="bold" android:textSize="20sp"/>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e1x1_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:id="@+id/edittext_main_e1x1"
-          android:gravity="center"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x1"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e1x1"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e1x2_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e1x2"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x2"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e1x2"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e1x3_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e1x3"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x3"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e1x3"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e1x4_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e1x4"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x4"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e1x4"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e1x5_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e1x5"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x5"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e1x5"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e1_greater"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="3"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e1_result"
-          style="@android:style/Widget.Material.EditText"/>
-
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e2x1_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:id="@+id/edittext_main_e2x1"
-          android:gravity="center"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x1"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e2x1"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e2x2_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e2x2"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x2"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e2x2"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e2x3_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e2x3"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x3"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e2x3"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e2x4_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e2x4"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x4"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e2x4"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e2x5_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e2x5"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x5"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e2x5"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e2_greater"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="3"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e2_result"
-          style="@android:style/Widget.Material.EditText"/>
-
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e3x1_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:id="@+id/edittext_main_e3x1"
-          android:gravity="center"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x1"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e3x1"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e3x2_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e3x2"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x2"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e3x2"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e3x3_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e3x3"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x3"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e3x3"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e3x4_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e3x4"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x4"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e3x4"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e3x5_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e3x5"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x5"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e3x5"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e3_greater"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="3"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e3_result"
-          style="@android:style/Widget.Material.EditText"/>
-
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e4x1_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:id="@+id/edittext_main_e4x1"
-          android:gravity="center"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x1"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e4x1"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e4x2_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e4x2"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x2"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e4x2"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e4x3_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e4x3"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x3"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e4x3"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e4x4_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e4x4"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x4"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e4x4"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e4x5_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e4x5"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x5"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e4x5"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e4_greater"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="3"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e4_result"
-          style="@android:style/Widget.Material.EditText"/>
-
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e5x1_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:id="@+id/edittext_main_e5x1"
-          android:gravity="center"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x1"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e5x1"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e5x2_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e5x2"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x2"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e5x2"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e5x3_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e5x3"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x3"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e5x3"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e5x4_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e5x4"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x4"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e5x4"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e5x5_plus"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="2"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e5x5"
-          style="@android:style/Widget.Material.EditText"/>
-
-      <TextView
-          android:text="x5"
-          android:gravity="center"
-          android:ems="1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/textview_main_e5x5"/>
-
-      <Spinner
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/spinner_main_e5_greater"
-          android:background="@null"/>
-
-      <EditText
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:inputType="numberDecimal"
-          android:background="@null"
-          tools:text="99.99"
-          android:ems="3"
-          android:gravity="center"
-          android:id="@+id/edittext_main_e5_result"
-          style="@android:style/Widget.Material.EditText"/>
-
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <TextView
-        android:text="Solution"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp" android:textStyle="bold" android:textSize="20sp"/>
-
-    <TextView
-        tools:text=""
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textview_main_solution"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"/>
-
-    <TextView
-        android:text=""
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp" android:textStyle="bold" android:textSize="20sp"/>
-
-  </android.support.v7.widget.LinearLayoutCompat>
 
 </android.support.v4.widget.NestedScrollView>
