@@ -2,36 +2,46 @@ package com.necatisozer.simplexmethodsolver;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.*;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.necatisozer.simplexmethodsolver.data.Equation;
+import org.apache.commons.math3.optim.MaxIter;
+import org.apache.commons.math3.optim.PointValuePair;
+import org.apache.commons.math3.optim.linear.*;
+import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.main_coordinator_layout)
+    CoordinatorLayout coordinatorLayout;
+
+    @BindView(R.id.app_bar)
+    AppBarLayout appBarLayout;
+
     @BindView(R.id.nested_scroll_view_main)
     NestedScrollView nestedScrollView;
+
     @BindView(R.id.fab)
     FloatingActionButton fab;
+
     @BindView(R.id.linearlayout_main_focus)
     LinearLayoutCompat linearLayoutCompatFocus;
 
@@ -98,13 +108,14 @@ public class MainActivity extends AppCompatActivity {
             editTextsResult;
 
     @BindView(R.id.textview_main_solution)
-    TextView textViewsolution;
+    TextView textViewSolution;
 
     List<List<Spinner>> spinnersPlus;
     List<List<EditText>> editTextsConstant;
 
-    private List<Equation> equations;
-    private List<Integer> pivotConstantIndexList;
+    private LinearObjectiveFunction objectiveFunction;
+    private List<LinearConstraint> constraints;
+    private GoalType goalType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,120 +173,118 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getInputs() {
-        equations = new ArrayList<>();
-        pivotConstantIndexList = new ArrayList<>();
+        double[] objectiveFunctionCoefficients = new double[editTextsConstantGoal.size()];
+
+        for (int i = 0; i < editTextsConstantGoal.size(); i++) {
+            String sCoefficient = editTextsConstantGoal.get(i).getText().toString();
+            Double coefficient = sCoefficient.isEmpty() ? 0.0 : Double.parseDouble(sCoefficient);
+            Double multiply = spinnersPlusGoal.get(i).getSelectedItemPosition() == 0 ? 1.0 : -1.0;
+            objectiveFunctionCoefficients[i] = coefficient == 0 ? 0.0 : coefficient * multiply;
+        }
+
+        objectiveFunction = new LinearObjectiveFunction(objectiveFunctionCoefficients, 0);
+
+        constraints = new ArrayList<>();
 
         for (int i = 0; i < editTextsConstant.size(); i++) {
-            List<Double> constants = new ArrayList<>();
+            double[] coefficients = new double[editTextsConstant.get(i).size()];
+
             for (int j = 0; j < editTextsConstant.get(i).size(); j++) {
-                String sConstant = editTextsConstant.get(i).get(j).getText().toString();
-                Double constant = sConstant.isEmpty() ? 0.0 : Double.parseDouble(sConstant);
+                String sCoefficient = editTextsConstant.get(i).get(j).getText().toString();
+                Double coefficient = sCoefficient.isEmpty() ? 0.0 : Double.parseDouble(sCoefficient);
                 Double multiply = spinnersPlus.get(i).get(j).getSelectedItemPosition() == 0 ? 1.0 : -1.0;
-                constants.add(constant == 0 ? 0.0 : constant * multiply);
+                coefficients[j] = coefficient == 0 ? 0.0 : coefficient * multiply;
             }
 
-            for (int k = 0; k < editTextsConstant.size() + 1; k++) {
-                if (k == i) {
-                    switch (spinnersGreater.get(i).getSelectedItemPosition()) {
-                        case 0:
-                            constants.add(1.0);
-                            break;
-                        case 1:
-                            constants.add(-1.0);
-                            break;
-                    }
-                } else {
-                    constants.add(0.0);
-                }
-            }
+            Relationship relationship = spinnersGreater.get(i).getSelectedItemPosition() == 0 ? Relationship.LEQ : Relationship.GEQ;
 
             String sResult = editTextsResult.get(i).getText().toString();
             Double result = sResult.isEmpty() ? 0.0 : Double.parseDouble(sResult);
 
-            equations.add(new Equation(constants, result));
+            constraints.add(new LinearConstraint(coefficients, relationship, result));
         }
 
-        for (int i = 0; i < editTextsConstant.size(); i++) {
-            pivotConstantIndexList.add(5 + i);
-        }
-
-        List<Double> constantsResult = new ArrayList<>();
-        for (EditText editTextConstant : editTextsConstantGoal) {
-            String sConstant = editTextConstant.getText().toString();
-            Double constant = sConstant.isEmpty() ? 0.0 : Double.parseDouble(sConstant);
-            constantsResult.add(constant == 0 ? 0.0 : constant * (-1));
-        }
-        for (int i = 0; i < editTextsConstant.size(); i++) {
-            constantsResult.add(0.0);
-        }
-        constantsResult.add(1.0);
-        equations.add(new Equation(constantsResult, 0.0));
+        goalType = spinnerGoalMaximize.getSelectedItemPosition() == 0 ? GoalType.MAXIMIZE : GoalType.MINIMIZE;
     }
 
     private void calculate() {
-        while (ifContinueOrNot()) {
-            // Find pivot column index by comparing objective function constants
-            int numberOfEquation = equations.size();
-            List<Double> constants = equations.get(numberOfEquation - 1).getConstants();
-            int pivotColumnIndex = constants.indexOf(Collections.min(constants));
+        getInputs();
 
-            // Find row index of pivot by comparing ratios
-            int pivotRowIndex = 0;
-            double minRatio = Double.POSITIVE_INFINITY;
+        String sSolution = "";
 
-            for (int i = 0; i < equations.size() - 1; i++) {
-                double ratio =
-                        equations.get(i).getResult() / equations.get(i).getConstants().get(pivotColumnIndex);
-                if (ratio < minRatio) {
-                    minRatio = ratio;
-                    pivotRowIndex = i;
-                }
+        try {
+            SimplexSolver solver = new SimplexSolver();
+            PointValuePair solution = solver.optimize(new MaxIter(editTextsConstantGoal.size()), objectiveFunction, new LinearConstraintSet(constraints), goalType, new NonNegativeConstraint(true));
+
+            for (int i = 0; i < editTextsConstantGoal.size(); i++) {
+                sSolution += "x" + (i + 1) + " = " + formatDecimal(solution.getPoint()[i]) + "\n";
             }
 
-            // Divide pivot's row by pivot
-            double pivot = equations.get(pivotRowIndex).getConstants().get(pivotColumnIndex);
-            equations.get(pivotRowIndex).divideBy(pivot);
-
-            // Divide other rows by their pivot column element
-            for (int i = 0; i < equations.size(); i++) {
-                if (i == pivotRowIndex) continue;
-                double pivotColumnElement = equations.get(i).getConstants().get(pivotColumnIndex);
-                equations.get(i)
-                        .addMultipliedEquation(pivotColumnElement * (-1), equations.get(pivotRowIndex).clone());
-            }
-            pivotConstantIndexList.set(pivotRowIndex, pivotColumnIndex);
+            sSolution += "Solution: " + formatDecimal(solution.getValue());
+        } catch (Throwable exception) {
+            handleError(exception);
         }
 
-        String solution = "";
-        for (int i = 0; i < 5; i++) {
-            solution += "x" + (i + 1) + " = ";
-            int index = pivotConstantIndexList.indexOf(i);
-            if (index > -1) {
-                solution += equations.get(index).getResult();
-            } else {
-                solution += 0;
-            }
-            solution += ", ";
-        }
-
-        solution += "Solution: " + equations.get(equations.size() - 1).getResult();
-        textViewsolution.setText(solution);
+        textViewSolution.setText(sSolution);
+        appBarLayout.setExpanded(false);
         nestedScrollView.fullScroll(View.FOCUS_DOWN);
     }
 
-    private boolean ifContinueOrNot() {
-        int numberOfEquation = equations.size();
-        List<Double> constants = equations.get(numberOfEquation - 1).getConstants();
-        for (double constant : constants) {
-            if (constant < 0) return true;
-        }
-        return false;
+    private String formatDecimal(double number) {
+        if (number == Math.abs(number)) return String.valueOf((int) number);
+        String text = Double.toString(Math.abs(number));
+        int integerPlaces = text.indexOf('.');
+        int decimalPlaces = text.length() - integerPlaces - 1;
+        return decimalPlaces > 2 ? String.format(Locale.getDefault(), "%.2f", number) : Double.toString(number);
     }
+
+    private void handleError(Throwable error) {
+        if (error instanceof UnboundedSolutionException)
+            showSnackBar("Unbounded Solution");
+        else if (error instanceof NoFeasibleSolutionException)
+            showSnackBar("No Feasible Solution");
+        else
+            showSnackBar(error.getClass().getSimpleName());
+    }
+
+    private void showSnackBar(String text) {
+        Snackbar.make(coordinatorLayout, text, Snackbar.LENGTH_SHORT).show();
+    }
+
+    private void reset() {
+        for (List<EditText> editTexts : editTextsConstant) {
+            for (EditText editText : editTexts)
+                editText.setText("");
+        }
+
+        for (EditText editText : editTextsResult)
+            editText.setText("");
+
+        for (EditText editText : editTextsConstantGoal)
+            editText.setText("");
+
+        for (List<Spinner> spinners : spinnersPlus) {
+            for (Spinner spinner : spinners)
+                spinner.setSelection(0);
+        }
+
+        for (Spinner spinner : spinnersPlusGoal)
+            spinner.setSelection(0);
+
+        for (Spinner spinner : spinnersGreater)
+            spinner.setSelection(0);
+
+        spinnerGoalMaximize.setSelection(0);
+
+        textViewSolution.setText("");
+        appBarLayout.setExpanded(true);
+        nestedScrollView.fullScroll(View.FOCUS_UP);
+    }
+
 
     @OnClick(R.id.fab)
     void onCalculateClicked() {
         linearLayoutCompatFocus.requestFocus();
-        getInputs();
         calculate();
     }
 
@@ -294,10 +303,13 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_calculate) {
             linearLayoutCompatFocus.requestFocus();
-            getInputs();
             calculate();
+            return true;
+        } else if (id == R.id.action_reset) {
+            linearLayoutCompatFocus.requestFocus();
+            reset();
             return true;
         }
         return super.onOptionsItemSelected(item);
