@@ -89,7 +89,8 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="action_settings">Calculate</string>
+    <string name="action_calculate">Calculate</string>
+    <string name="action_reset">Reset</string>
     <string-array name="main_spinner_items_plus">
         <item>+</item>
         <item>−</item>
